@@ -1,0 +1,124 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#080b20">
+    <title>Galaxy Defender | Space Shooter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="game-wrapper">
+
+        <header class="header">
+            <div class="logo">
+                <span class="logo-icon">🚀</span>
+                <div>
+                    <h1>GALAXY <span>DEFENDER</span></h1>
+                    <p>SPACE DEFENSE SYSTEM</p>
+                </div>
+            </div>
+            <div class="status">
+                <span class="status-dot"></span>
+                SYSTEM ONLINE
+            </div>
+        </header>
+
+        <section class="dashboard">
+
+            <div class="stat-card">
+                <span>SCORE</span>
+                <strong id="score">00000</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>HIGH SCORE</span>
+                <strong id="highScore">00000</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>LEVEL</span>
+                <strong id="level">01</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>SHIELDS</span>
+                <strong id="lives">❤️❤️❤️</strong>
+            </div>
+
+        </section>
+
+        <section class="game-section">
+
+            <div class="game-topbar">
+                <span>◉ GALACTIC BATTLE ZONE</span>
+                <span id="gameStatus">WAITING FOR COMMAND</span>
+            </div>
+
+            <div class="canvas-container">
+
+                <canvas id="gameCanvas" width="800" height="600"></canvas>
+
+                <div class="overlay" id="overlay">
+
+                    <div class="overlay-content">
+                        <div class="planet">🪐</div>
+
+                        <p class="small-heading">MISSION CONTROL</p>
+
+                        <h2 id="overlayTitle">
+                            DEFEND THE <span>GALAXY</span>
+                        </h2>
+
+                        <p id="overlayDescription">
+                            Enemy forces are approaching.
+                            Take control of your spaceship and protect the galaxy!
+                        </p>
+
+                        <button id="startBtn">
+                            START MISSION <span>→</span>
+                        </button>
+
+                        <p class="keyboard-info">
+                            ← → MOVE &nbsp; | &nbsp; SPACE SHOOT
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="game-footer">
+                <span>MISSION: SURVIVE THE INVASION</span>
+                <span>PLAYER 01</span>
+            </div>
+
+        </section>
+
+        <section class="bottom-panel">
+
+            <div class="control-info">
+                <h3>CONTROLS</h3>
+                <p><kbd>←</kbd> <kbd>→</kbd> Move</p>
+                <p><kbd>SPACE</kbd> Fire Laser</p>
+                <p><kbd>P</kbd> Pause Game</p>
+            </div>
+
+            <div class="action-buttons">
+                <button id="pauseBtn" disabled>Ⅱ PAUSE</button>
+                <button id="restartBtn">↻ RESTART</button>
+            </div>
+
+        </section>
+
+        <footer>
+            GALAXY DEFENDER © 2026 | PROTECT YOUR UNIVERSE
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

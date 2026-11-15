@@ -1,0 +1,376 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Rajdhani:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #00d9ff;
+    --purple: #a855f7;
+    --background: #080b20;
+    --panel: #10152e;
+    --text: #eaf6ff;
+}
+
+body {
+    min-height: 100vh;
+    padding: 25px 15px;
+    background:
+        radial-gradient(ellipse at 50% 0%, #24205b 0%, transparent 55%),
+        #080b20;
+    color: var(--text);
+    font-family: 'Rajdhani', sans-serif;
+}
+
+.game-wrapper {
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 12px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.logo-icon {
+    font-size: 38px;
+    filter: drop-shadow(0 0 10px var(--blue));
+}
+
+.logo h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 23px;
+    letter-spacing: 2px;
+}
+
+.logo h1 span {
+    color: var(--blue);
+}
+
+.logo p {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #9ba9d4;
+    margin-top: 5px;
+}
+
+.status {
+    color: #72f7c8;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #52f6bd;
+    border-radius: 50%;
+    margin-right: 6px;
+    box-shadow: 0 0 10px #52f6bd;
+}
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 17px;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, #151b3c, #10152e);
+    border: 1px solid #28345e;
+    border-radius: 10px;
+    padding: 14px;
+    text-align: center;
+    box-shadow: 0 5px 20px #0003;
+}
+
+.stat-card span {
+    display: block;
+    font-size: 11px;
+    color: #9aa9d1;
+    letter-spacing: 2px;
+    margin-bottom: 7px;
+}
+
+.stat-card strong {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 21px;
+    color: var(--blue);
+    text-shadow: 0 0 12px #00d9ff66;
+}
+
+#lives {
+    font-size: 16px;
+    letter-spacing: 2px;
+    text-shadow: none;
+}
+
+.game-section {
+    background: #10152e;
+    border: 1px solid #33406d;
+    border-radius: 13px;
+    padding: 12px;
+    box-shadow:
+        0 0 30px #0066ff16,
+        0 0 60px #a855f711;
+}
+
+.game-topbar,
+.game-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 9px 5px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 10px;
+    letter-spacing: 1px;
+    color: #94a5d4;
+}
+
+#gameStatus {
+    color: var(--blue);
+    text-align: right;
+}
+
+.canvas-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid #334a82;
+    border-radius: 7px;
+    background: #050817;
+    line-height: 0;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    height: auto;
+    background: #050817;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: rgba(5, 8, 25, 0.83);
+    backdrop-filter: blur(5px);
+    padding: 15px;
+}
+
+.overlay-content {
+    max-width: 450px;
+    line-height: normal;
+}
+
+.planet {
+    font-size: 58px;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 0 15px #a855f7);
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    50% {
+        transform: translateY(-12px);
+    }
+}
+
+.small-heading {
+    color: var(--blue);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    margin-bottom: 13px;
+}
+
+.overlay h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(19px, 4vw, 30px);
+    line-height: 1.5;
+    margin-bottom: 12px;
+}
+
+.overlay h2 span {
+    color: var(--blue);
+    text-shadow: 0 0 15px #00d9ff88;
+}
+
+.overlay-content > p:not(.small-heading):not(.keyboard-info) {
+    color: #aebbdc;
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 22px;
+}
+
+button {
+    font-family: 'Orbitron', sans-serif;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#startBtn {
+    background: linear-gradient(90deg, #007cff, #8b43f5);
+    color: white;
+    padding: 15px 28px;
+    border: none;
+    border-radius: 5px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px #168dff66;
+}
+
+#startBtn:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px #168dffbb;
+}
+
+.keyboard-info {
+    margin-top: 18px;
+    color: #8596bd;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+
+.game-footer {
+    font-size: 9px;
+}
+
+.bottom-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    background: #10152e;
+    border: 1px solid #28345e;
+    border-radius: 10px;
+    padding: 16px;
+    margin-top: 16px;
+}
+
+.control-info h3 {
+    color: var(--blue);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 8px;
+}
+
+.control-info p {
+    color: #aebbdc;
+    font-size: 13px;
+    margin: 3px 0;
+}
+
+kbd {
+    background: #252e55;
+    color: white;
+    padding: 2px 7px;
+    border: 1px solid #475a91;
+    border-radius: 4px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 9px;
+}
+
+.action-buttons button {
+    padding: 11px 15px;
+    background: #1a2448;
+    border: 1px solid var(--blue);
+    color: var(--blue);
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+.action-buttons button:hover:not(:disabled) {
+    background: #0879a5;
+    color: white;
+}
+
+.action-buttons button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+footer {
+    text-align: center;
+    color: #67779e;
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 23px;
+}
+
+@media (max-width: 600px) {
+    body {
+        padding: 15px 8px;
+    }
+
+    .header {
+        flex-wrap: wrap;
+    }
+
+    .logo h1 {
+        font-size: 17px;
+    }
+
+    .logo-icon {
+        font-size: 30px;
+    }
+
+    .status {
+        font-size: 9px;
+    }
+
+    .dashboard {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 10px;
+    }
+
+    .stat-card strong {
+        font-size: 17px;
+    }
+
+    .game-section {
+        padding: 7px;
+    }
+
+    .game-topbar,
+    .game-footer {
+        font-size: 8px;
+    }
+
+    .bottom-panel {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .action-buttons {
+        justify-content: center;
+    }
+}
